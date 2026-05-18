@@ -1,13 +1,195 @@
 body {
-    background-color: #f2f2f2;
-    font-family: 'Times New Roman', Times, serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+  background-color: #f2f2f2;
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+}
+
+.page-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 40px;
+  gap: 24px;
+  flex-wrap: wrap;
 }
 
 .profile-card {
-    width: 300px;
-    padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 320px;
+  max-height: 320px;
+  padding: 28px 24px;
+  margin-bottom: 8px;
+  background-color: #f5ecd8;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  text-align: center;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.profile-card:hover {
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.14);
+  transform: translateY(-4px);
+}
+
+.profile-card img {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  object-fit: cover;
+}
+
+.profile-card h1 {
+  font-family: "Raleway", sans-serif;
+  font-size: 24px;
+  margin: 0;
+  color: #333;
+}
+
+.profile-card .job-title {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.profile-card .description {
+  font-size: 14px;
+  color: #777;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.social-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border: 1px solid #d7c9aa;
+  border-radius: 50%;
+  color: #333;
+  text-decoration: none;
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.social-links a:hover,
+.social-links a:focus {
+  background-color: #007bff;
+  border-color: #007bff;
+  color: #fff;
+  outline: none;
+  transform: translateY(-3px) scale(1.05);
+}
+
+.social-icon {
+  display: block;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
+
+.contact-form {
+  background-color: #fff;
+  padding: 30px;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.contact-form label {
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+  transition: border-color 0.3s ease;
+}
+
+/* Focus efekti */
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
+  outline: none;
+}
+
+/* Buton tasarımı */
+.contact-form button {
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form button:active {
+  transform: scale(0.98);
+}
+
+.contact-form button:hover {
+  background-color: #0056b3;
+}
+
+.contact-form input:not(:placeholder-shown):invalid,
+.contact-form textarea:not(:placeholder-shown):invalid {
+  border-color: #dc3545;
+}
+
+@media (max-width: 600px) {
+  .page-wrapper {
+    align-items: stretch;
+    padding: 24px 16px;
+  }
+
+  .profile-card,
+  .contact-form {
+    max-width: none;
+  }
+
+  .contact-form {
+    padding: 24px 20px;
+  }
+
+  .profile-card h1 {
+    font-size: 21px;
+  }
+}
+
+@media (min-width: 768px) {
+  .page-wrapper {
+    gap: 48px;
+  }
 }
