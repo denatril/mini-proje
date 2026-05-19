@@ -14,7 +14,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&family=Roboto:wght@400;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./styles/styles.css" />
@@ -22,43 +22,81 @@
   <body>
     <main class="page-wrapper">
       <section class="profile-card">
-        <img src="images/oguzhan.webp" alt="Oguzhan Ocakoglu profil fotoğrafı" />
-        <h1>Oguzhan OCAKOGLU</h1>
-        <p class="job-title">Frontend Developer</p>
-        <p class="description">Yeni bir yazılımcı adayı.</p>
+        <img
+          src="images/oguzhan.webp"
+          alt="Oguzhan Ocakoglu profil fotoğrafı"
+        />
+        <h1>OĞUZHAN OCAKOĞLU</h1>
+        <p class="job-title">Full-Stack Developer Candidate</p>
+        <p class="description">
+          Yeni Bir Full-Stack Geliştirici Adayı
+        </p>
         <div class="social-links" aria-label="Sosyal bağlantılar">
-          <a href="https://github.com/denatril" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <a
+            href="https://github.com/denatril"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+            data-tooltip="GitHub"
+          >
             <svg class="social-icon" width="16" height="16" aria-hidden="true">
               <use href="./images/icons.svg#icon-github"></use>
             </svg>
           </a>
-          <a href="https://www.linkedin.com/in/oguzhanocakoglu/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <a
+            href="https://www.linkedin.com/in/oguzhanocakoglu/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+            data-tooltip="LinkedIn"
+          >
             <svg class="social-icon" width="16" height="16" aria-hidden="true">
               <use href="./images/icons.svg#icon-linkedin"></use>
             </svg>
           </a>
-          <a href="mailto:ornek@mail.com" aria-label="E-posta">
+          <a href="#contact" aria-label="İletişim" data-tooltip="İletişim">
             <svg class="social-icon" width="16" height="16" aria-hidden="true">
-              <use href="./images/icons.svg#icon-mail"></use>
+              <use href="./images/icons.svg#icon-address-book"></use>
             </svg>
           </a>
         </div>
       </section>
 
-      <section class="contact-form">
-        <h2>Bize Ulaşın</h2>
-        <form>
-          <label for="name">Adınız:</label>
-          <input type="text" id="name" name="name" required placeholder="Adınız"/>
+      <section id="contact" class="contact-modal">
+        <div class="modal-content contact-form">
+          <a href="#" class="modal-close" aria-label="Kapat">&times;</a>
+          <h2>Bize Ulaşın</h2>
+          <form>
+            <label for="name">Adınız:</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              placeholder="Adınız"
+            />
 
-          <label for="email">E-posta:</label>
-          <input type="email" id="email" name="email" required placeholder="E-posta"/>
+            <label for="email">E-posta:</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              placeholder="E-posta"
+            />
 
-          <label for="message">Mesajınız:</label>
-          <textarea id="message" name="message" rows="4" required placeholder="Mesajınız"></textarea>
+            <label for="message">Mesajınız:</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="4"
+              required
+              placeholder="Mesajınız"
+            ></textarea>
 
-          <button type="submit">Gönder</button>
-        </form>
+            <button type="submit">Gönder</button>
+          </form>
+        </div>
       </section>
     </main>
   </body>

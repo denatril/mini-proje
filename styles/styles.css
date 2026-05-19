@@ -1,17 +1,23 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
   background-color: #f2f2f2;
-  font-family: "Roboto", sans-serif;
+  font-family: "Inter", sans-serif;
   margin: 0;
 }
 
 .page-wrapper {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
   padding: 40px;
   gap: 24px;
-  flex-wrap: wrap;
 }
 
 .profile-card {
@@ -19,13 +25,12 @@ body {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  max-width: 320px;
-  max-height: 320px;
-  padding: 28px 24px;
+  max-width: 480px;
+  padding: 56px 48px;
   margin-bottom: 8px;
   background-color: #f5ecd8;
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
-  border-radius: 8px;
+  border-radius: 12px;
   text-align: center;
   transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
@@ -36,44 +41,53 @@ body {
 }
 
 .profile-card img {
-  width: 72px;
-  height: 72px;
+  width: 124px;
+  height: 124px;
   border-radius: 50%;
-  margin-bottom: 15px;
+  margin-bottom: 26px;
   object-fit: cover;
 }
 
 .profile-card h1 {
-  font-family: "Raleway", sans-serif;
-  font-size: 24px;
+  font-family: "Poppins", sans-serif;
+  font-size: 34px;
+  font-weight: 700;
   margin: 0;
-  color: #333;
+  color: #242424;
+  line-height: 1.15;
 }
 
 .profile-card .job-title {
-  font-size: 16px;
-  color: #555;
-  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #3f3f3f;
+  margin-top: 12px;
+  margin-bottom: 16px;
 }
 
 .profile-card .description {
-  font-size: 14px;
-  color: #777;
+  max-width: 340px;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.6;
+  color: #5f5f5f;
+  margin: 0;
 }
 
 .social-links {
   display: flex;
   justify-content: center;
-  gap: 10px;
-  margin-top: 18px;
+  gap: 16px;
+  margin-top: 34px;
 }
 
 .social-links a {
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 48px;
-  height: 48px;
+  width: 60px;
+  height: 60px;
   border: 1px solid #d7c9aa;
   border-radius: 50%;
   color: #333;
@@ -94,11 +108,41 @@ body {
   transform: translateY(-3px) scale(1.05);
 }
 
+.social-links a::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: -36px;
+  left: 50%;
+  padding: 6px 9px;
+  border-radius: 6px;
+  background-color: #242424;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-50%) translateY(-4px);
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+.social-links a:hover::after,
+.social-links a:focus::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.social-links a:focus-visible {
+  box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.2);
+}
+
 .social-icon {
   display: block;
   flex-shrink: 0;
-  width: 24px;
-  height: 24px;
+  width: 30px;
+  height: 30px;
   fill: currentColor;
 }
 
@@ -168,15 +212,107 @@ body {
   border-color: #dc3545;
 }
 
+.contact-modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  place-items: center;
+  padding: 24px 16px;
+  background-color: rgba(0, 0, 0, 0.35);
+  overflow-y: auto;
+  z-index: 10;
+}
+
+.contact-modal:target {
+  display: grid;
+  animation: overlay-in 0.25s ease;
+}
+
+.modal-content {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+}
+
+.contact-modal:target .modal-content {
+  animation: modal-in 0.25s ease;
+}
+
+.modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border: 1px solid #e1d7c2;
+  border-radius: 50%;
+  background-color: #f5ecd8;
+  color: #333;
+  font-size: 24px;
+  line-height: 1;
+  text-decoration: none;
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.modal-close:hover,
+.modal-close:focus {
+  background-color: #007bff;
+  border-color: #007bff;
+  color: #fff;
+  outline: none;
+  transform: rotate(90deg);
+}
+
+.modal-close:focus-visible {
+  box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.2);
+}
+
+@keyframes overlay-in {
+  from {
+    background-color: rgba(0, 0, 0, 0);
+  }
+
+  to {
+    background-color: rgba(0, 0, 0, 0.35);
+  }
+}
+
+@keyframes modal-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
 @media (max-width: 600px) {
   .page-wrapper {
-    align-items: stretch;
     padding: 24px 16px;
   }
 
   .profile-card,
   .contact-form {
-    max-width: none;
+    max-width: 100%;
+  }
+
+  .profile-card {
+    padding: 32px 22px;
+  }
+
+  .profile-card img {
+    width: 86px;
+    height: 86px;
   }
 
   .contact-form {
@@ -184,7 +320,34 @@ body {
   }
 
   .profile-card h1 {
-    font-size: 21px;
+    font-size: 24px;
+  }
+
+  .profile-card .job-title {
+    font-size: 16px;
+  }
+
+  .profile-card .description {
+    font-size: 14px;
+  }
+
+  .social-links {
+    gap: 12px;
+    margin-top: 24px;
+  }
+
+  .social-links a {
+    width: 48px;
+    height: 48px;
+  }
+
+  .social-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .contact-modal {
+    padding: 18px 12px;
   }
 }
 
