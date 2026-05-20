@@ -1,3 +1,28 @@
+:root {
+  --color-page-bg: #f2f2f2;
+  --color-card-bg: #f5ecd8;
+  --color-surface-bg: #fff;
+  --color-text: #242424;
+  --color-text-soft: #5f5f5f;
+  --color-primary: #007bff;
+  --color-border: #d7c9aa;
+  --color-border-soft: #e1d7c2;
+  --color-primary-dark: #0056b3;
+  --color-danger: #dc3545;
+  --color-heading-soft: #3f3f3f;
+  --color-input-border: #dddddd;
+  --color-input-focus: #007bff;
+  --color-overlay: rgba(0, 0, 0, 0.35);
+
+  --shadow-card: 0 12px 28px rgba(0, 0, 0, 0.08);
+  --shadow-card-hover: 0 16px 36px rgba(0, 0, 0, 0.14);
+  --shadow-form: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  --radius-card: 12px;
+  --radius-button: 6px;
+  --radius-form: 10px;
+}
+
 *,
 *::before,
 *::after {
@@ -5,7 +30,7 @@
 }
 
 body {
-  background-color: #f2f2f2;
+  background-color: var(--color-page-bg);
   font-family: "Inter", sans-serif;
   margin: 0;
 }
@@ -28,15 +53,15 @@ body {
   max-width: 480px;
   padding: 56px 48px;
   margin-bottom: 8px;
-  background-color: #f5ecd8;
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
-  border-radius: 12px;
+  background-color: var(--color-card-bg);
+  box-shadow: var(--shadow-card);
+  border-radius: var(--radius-card);
   text-align: center;
   transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .profile-card:hover {
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.14);
+  box-shadow: var(--shadow-card-hover);
   transform: translateY(-4px);
 }
 
@@ -53,14 +78,14 @@ body {
   font-size: 34px;
   font-weight: 700;
   margin: 0;
-  color: #242424;
+  color: var(--color-text);
   line-height: 1.15;
 }
 
 .profile-card .job-title {
   font-size: 20px;
   font-weight: 700;
-  color: #3f3f3f;
+  color: var(--color-text-soft);
   margin-top: 12px;
   margin-bottom: 16px;
 }
@@ -70,7 +95,7 @@ body {
   font-size: 17px;
   font-weight: 500;
   line-height: 1.6;
-  color: #5f5f5f;
+  color: var(--color-text-soft);
   margin: 0;
 }
 
@@ -88,9 +113,9 @@ body {
   justify-content: center;
   width: 60px;
   height: 60px;
-  border: 1px solid #d7c9aa;
+  border: 1px solid var(--color-border);
   border-radius: 50%;
-  color: #333;
+  color: var(--color-text);
   text-decoration: none;
   transition:
     background-color 0.3s ease,
@@ -101,9 +126,9 @@ body {
 
 .social-links a:hover,
 .social-links a:focus {
-  background-color: #007bff;
-  border-color: #007bff;
-  color: #fff;
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-surface-bg);
   outline: none;
   transform: translateY(-3px) scale(1.05);
 }
@@ -115,8 +140,8 @@ body {
   left: 50%;
   padding: 6px 9px;
   border-radius: 6px;
-  background-color: #242424;
-  color: #fff;
+  background-color: var(--color-text);
+  color: var(--color-surface-bg);
   font-size: 12px;
   font-weight: 600;
   white-space: nowrap;
@@ -147,12 +172,12 @@ body {
 }
 
 .contact-form {
-  background-color: #fff;
+  background-color: var(--color-surface-bg);
   padding: 30px;
   width: 100%;
   max-width: 400px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: var(--radius-form);
+  box-shadow: var(--shadow-form);
 }
 
 .contact-form h2 {
@@ -171,7 +196,7 @@ body {
 .contact-form textarea {
   width: 100%;
   padding: 10px;
-  border: 2px solid #ddd;
+  border: 2px solid var(--color-input-border);
   border-radius: 5px;
   font-size: 14px;
   transition: border-color 0.3s ease;
@@ -180,8 +205,8 @@ body {
 /* Focus efekti */
 .contact-form input:focus,
 .contact-form textarea:focus {
-  border-color: #007bff;
-  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
+  border-color: var(--color-input-focus);
+  box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.2);
   outline: none;
 }
 
@@ -189,10 +214,10 @@ body {
 .contact-form button {
   width: 100%;
   padding: 12px;
-  background-color: #007bff;
-  color: white;
+  background-color: var(--color-primary);
+  color: var(--color-surface-bg);
   border: none;
-  border-radius: 6px;
+  border-radius: var(--radius-button);
   font-size: 16px;
   margin-top: 20px;
   cursor: pointer;
@@ -204,12 +229,12 @@ body {
 }
 
 .contact-form button:hover {
-  background-color: #0056b3;
+  background-color: var(--color-primary-dark);
 }
 
 .contact-form input:not(:placeholder-shown):invalid,
 .contact-form textarea:not(:placeholder-shown):invalid {
-  border-color: #dc3545;
+  border-color: var(--color-danger);
 }
 
 .contact-modal {
@@ -218,7 +243,7 @@ body {
   display: none;
   place-items: center;
   padding: 24px 16px;
-  background-color: rgba(0, 0, 0, 0.35);
+  background-color: var(--color-overlay);
   overflow-y: auto;
   z-index: 10;
 }
@@ -247,10 +272,10 @@ body {
   justify-content: center;
   width: 34px;
   height: 34px;
-  border: 1px solid #e1d7c2;
+  border: 1px solid var(--color-border);
   border-radius: 50%;
-  background-color: #f5ecd8;
-  color: #333;
+  background-color: var(--color-surface-bg);
+  color: var(--color-text);
   font-size: 24px;
   line-height: 1;
   text-decoration: none;
@@ -263,9 +288,9 @@ body {
 
 .modal-close:hover,
 .modal-close:focus {
-  background-color: #007bff;
-  border-color: #007bff;
-  color: #fff;
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-surface-bg);
   outline: none;
   transform: rotate(90deg);
 }
