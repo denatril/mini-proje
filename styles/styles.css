@@ -23,6 +23,23 @@
   --radius-form: 10px;
 }
 
+body:has(#theme-toggle:checked) {
+  --color-page-bg: #171717;
+  --color-card-bg: #252016;
+  --color-surface-bg: #242424;
+  --color-text: #f5f5f5;
+  --color-text-soft: #d2d2d2;
+  --color-heading-soft: #eeeeee;
+  --color-border: #6c5d3f;
+  --color-border-soft: #4a4232;
+  --color-input-border: #555555;
+  --color-overlay: rgba(0, 0, 0, 0.6);
+
+  --shadow-card: 0 18px 40px rgba(0, 0, 0, 0.35);
+  --shadow-card-hover: 0 22px 48px rgba(0, 0, 0, 0.45);
+  --shadow-form: 0 18px 40px rgba(0, 0, 0, 0.35);
+}
+
 *,
 *::before,
 *::after {
@@ -297,6 +314,29 @@ body {
 
 .modal-close:focus-visible {
   box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.2);
+}
+
+.theme-switch {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 20;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  background-color: var(--color-surface-bg);
+  color: var(--color-text);
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: var(--shadow-form);
+  cursor: pointer;
+}
+
+.theme-switch input {
+  accent-color: var(--color-primary);
 }
 
 @keyframes overlay-in {
